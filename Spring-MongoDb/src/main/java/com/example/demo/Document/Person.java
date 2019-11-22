@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 public class Person { 
 	String pUuid;
 	String name;
-	String age;
+	int age;
 	String gender;
 	
-	public Person(String name, String age, String gender) {
+	public Person(String name, int age, String gender) {
 		super();
 		this.pUuid = UUID.randomUUID().toString();
 		this.name = name;

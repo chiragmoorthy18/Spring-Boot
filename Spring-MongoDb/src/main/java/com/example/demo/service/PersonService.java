@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,19 @@ public class PersonService {
     public void addPerson(Person person)
     {
     	this.personRepository.insert(person);
+    }
+    
+    public Person findByUuid(String uuid)
+    {
+    	Optional<Person> p =this.personRepository.findByPUuid(uuid);
+    	if(p.isPresent())
+    	{
+    		return p.get();
+    	}
+    	else
+    	{
+    		return new Person();
+    	}
     }
     
 	
