@@ -24,6 +24,7 @@ public class PersonService {
     	this.personRepository.insert(person);
     }
     
+//    find person by unique id
     public Person findByUuid(String uuid)
     {
     	Optional<Person> p =this.personRepository.findByPUuid(uuid);
