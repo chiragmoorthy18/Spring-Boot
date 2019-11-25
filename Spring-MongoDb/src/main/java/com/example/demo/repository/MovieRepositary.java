@@ -17,4 +17,7 @@ public interface MovieRepositary extends MongoRepository<Movie, String> {
 	public Optional<Movie> findById(String id);
 	
 	public List<Movie> findAllByDirector(Person director);
+	
+	@Override
+	public List<Movie> findAll();
 }

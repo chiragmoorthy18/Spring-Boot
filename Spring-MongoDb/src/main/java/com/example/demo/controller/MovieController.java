@@ -34,6 +34,7 @@ public class MovieController {
 		this.personService = personService;
 	}
     
+//    add person to db takes Person request entity as Request body
     @PostMapping("person") ResponseEntity<?> addPerson(@RequestBody PersonDTO personDTO)
     {  
     	Person person = new Person(personDTO.getName(), personDTO.getAge(), personDTO.getGender());
