@@ -60,6 +60,12 @@ public class MovieController {
     	return ResponseEntity.status(HttpStatus.CREATED).body(movie);
     }
     
+    @GetMapping("movie/{uuid}")
+    public Movie findByUuid(@PathVariable String uuid)
+    {
+    	return this.movieService.findByUuid(uuid);
+    }
+    
     @GetMapping("getCast")
     public ResponseEntity<java.util.List<Person>> getCast(@RequestHeader String uuid)
     {

@@ -71,6 +71,11 @@ public class MovieService {
     	
     	return movies;
     }
+    
+    public Movie findByUuid(String uuid)
+    {
+    	return this.movieRepositary.findById(uuid).get();
+    }
 	
 
 
