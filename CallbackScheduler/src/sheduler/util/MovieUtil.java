@@ -24,20 +24,18 @@ public class MovieUtil {
 		
 		List<String> movieDetail;
 		try {
+			movies.clear();
 			movieDetail = Files.readAllLines(Paths.get("C:\\Users\\IBMADMIN\\Desktop\\Project\\Spring-Boot\\CallbackScheduler\\src\\sheduler\\util\\Movies.txt"));
 			Consumer<String> consumeAndProcess = m -> {
 				String[] details = m.split(Constants.COMMA);
 				movies.add(new Movie(details[Constants.ZERO], details[Constants.ONE],Float.valueOf(details[Constants.TWO])));
 				
 			};
-			movieDetail.stream().forEach(consumeAndProcess );
+			movieDetail.stream().forEach(consumeAndProcess);
 		} catch (IOException e) {
-			
-			e.printStackTrace();
+			System.out.format("Error while populateMovies():: %s", e.getLocalizedMessage());
 		}
 		return movies;
-//		return Arrays.asList(childrenOfMen,takeShelter,fromUpOnPoppyHills,theSkinOfAWolf,
-//				whatDidJackDo,theKing,jurrasicWorld);
 	}
 
 }

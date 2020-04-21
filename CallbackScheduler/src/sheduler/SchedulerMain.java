@@ -22,8 +22,8 @@ public class SchedulerMain {
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		
 		int count = Constants.ZERO;
-		List<Movie> filteredMovies = new ArrayList<>();
 		do {
+			System.out.println(":::::::::::::::::::::::::::::::::::::::::::::");
 			System.out.println("*******Thread Excecution*********");
 			ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 			ScheduledFuture<List<Movie>> scheduledResult = scheduler.schedule
@@ -42,11 +42,9 @@ public class SchedulerMain {
 			scheduler.awaitTermination(Constants.TEN, TimeUnit.SECONDS);
 			
 			System.out.println("\n****** Filtered Movies ****** ");
-			filteredMovies = scheduledResult.get();
-			filteredMovies.stream().forEach(System.out::println);
+			scheduledResult.get().stream().forEach(System.out::println);
 			count++;
 			System.out.println(":::::::::::::::::::::::::::::::::::::::::::::");
-			filteredMovies.clear();
 		}while(count<Constants.TWO);
 		
 	}
